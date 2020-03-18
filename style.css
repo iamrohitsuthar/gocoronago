@@ -1,0 +1,45 @@
+body {
+    margin: 0px !important;
+}
+
+html {
+    all: unset;
+}
+.stats-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+#header {
+    margin: 20px;
+}
+
+.card {
+    margin-bottom: 30px;
+}
+
+
+hr {
+    width:50%;
+    margin-left:25% !important; 
+    margin-right:25% !important;
+    color: #333;
+    background-color: #333;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}
