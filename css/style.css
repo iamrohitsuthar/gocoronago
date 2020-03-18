@@ -43,6 +43,7 @@ hr {
 
 .table-responsive {
     overflow-x: hidden;
+    min-height: 300px;
 }
 
 #stats-table.row {

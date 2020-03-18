@@ -19,7 +19,7 @@
                     <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header purple-gradient">
                         <div class="card-body">
                             <h4 class="white-text mb-0">Total Cases</h4>
-                            <h2 class="white-text mb-0">52</h2>
+                            <h2 class="white-text mb-0" id="total_cases"></h2>
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                     <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header blue-gradient">
                         <div class="card-body">
                             <h4 class="white-text mb-0">Indians</h4>
-                            <h2 class="white-text mb-0">122</h2>
+                            <h2 class="white-text mb-0" id="indians"></h2>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header aqua-gradient">
                         <div class="card-body">
                             <h4 class="white-text mb-0">Foreigners</h4>
-                            <h2 class="white-text mb-0">25</h2>
+                            <h2 class="white-text mb-0" id="foreigners"></h2>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header peach-gradient">
                         <div class="card-body">
                             <h4 class="white-text mb-0">Deaths</h4>
-                            <h2 class="white-text mb-0">3</h2>
+                            <h2 class="white-text mb-0" id="deaths"></h2>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                     <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header near-moon-gradient">
                         <div class="card-body">
                             <h4 class="white-text mb-0">Cured</h4>
-                            <h2 class="white-text mb-0">14</h2>
+                            <h2 class="white-text mb-0" id="cured"></h2>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,11 @@
                                   <tr>
                                     <th class="th-sm">State
                                     </th>
-                                    <th class="th-sm">Cases
+                                    <th class="th-sm">Total Cases
+                                    </th>
+                                    <th class="th-sm">Indians
+                                    </th>
+                                    <th class="th-sm">Foreigners
                                     </th>
                                     <th class="th-sm">Deaths
                                     </th>
@@ -73,37 +77,8 @@
                                     </th>
                                   </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Maharashtra</td>
-                                        <td>61</td>
-                                        <td>2</td>
-                                        <td>20</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Karnataka</td>
-                                        <td>61</td>
-                                        <td>2</td>
-                                        <td>20</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kerala</td>
-                                        <td>61</td>
-                                        <td>2</td>
-                                        <td>20</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Uttar Pradesh</td>
-                                        <td>61</td>
-                                        <td>2</td>
-                                        <td>20</td>
-                                    </tr>
-                                    <tr>
-                                        <td>THaryana</td>
-                                        <td>61</td>
-                                        <td>2</td>
-                                        <td>20</td>
-                                    </tr>
+                                <tbody id="table-body">
+
                                 </tbody>
                         </table>
                         </div>
@@ -124,12 +99,10 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/datatables.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
     <script>
         $(document).ready(function () {
-        $('#dtBasicExample').DataTable({
-            paging: false
-        });
-        $('.dataTables_length').addClass('bs-select');
+            load();
         });
     </script>
 </html>
