@@ -60,6 +60,19 @@ hr {
     }
 }
 
+#footer {
+    width: 100%;
+    height: 20%;
+}
+
+#footer p {
+    padding-top: 20px;
+}
+
+#footer .social-icon {
+    padding-left: 10px;
+}
+
 table.dataTable thead .sorting:after,
 table.dataTable thead .sorting:before,
 table.dataTable thead .sorting_asc:after,
