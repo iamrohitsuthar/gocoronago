@@ -62,6 +62,9 @@ function chartInit(chartData) {
             }]
         },
         options: {
+            legend: {
+                display: false
+            },
             responsive: true,
             title: {
                 display: false
@@ -78,15 +81,31 @@ function chartInit(chartData) {
                 xAxes: [{
                     display: true,
                     scaleLabel: {
-                        display: true,
+                        display: false,
                         labelString: 'Date'
+                    },
+                    ticks: {
+                        callback: function(value, index, values) {
+                            if(window.matchMedia("(max-width: 480px)").matches)
+                                return '';
+                            else
+                                return value;
+                        },
                     }
                 }],
                 yAxes: [{
                     display: true,
                     scaleLabel: {
-                        display: true,
+                        display: false,
                         labelString: 'Data'
+                    },
+                    ticks: {
+                        callback: function(value, index, values) {
+                            if(window.matchMedia("(max-width: 480px)").matches)
+                                return '';
+                            else
+                                return value;
+                        },
                     }
                 }]
             }

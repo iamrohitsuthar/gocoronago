@@ -63,11 +63,10 @@ hr {
 
 #footer {
     width: 100%;
-    height: 20%;
 }
 
 #footer p {
-    padding-top: 20px;
+    padding: 20px 0;
 }
 
 #footer .social-icon {
