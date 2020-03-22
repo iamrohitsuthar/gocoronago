@@ -34,13 +34,13 @@
                     <div class="col-md-12">
                         <div class="collapse navbar-collapse" id="basicExampleNav">  
                             <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                <a class="nav-link" href="./index.html">Home</a>
+                                </li>
                                 <li class="nav-item active">
-                                <a class="nav-link" href="#">Home
+                                <a class="nav-link" href="#">Related Information
                                     <span class="sr-only">(current)</span>
                                 </a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="./info.html">Related Information</a>
                                 </li>
                                 <li class="nav-item">
                                 <a class="nav-link" href="./helplines.html">Helpline</a>
@@ -49,115 +49,70 @@
                         </div>
                     </div>
                 </div>
-
             </nav>
         </div>
+        <div id="info-symptoms">
+            <div class="card">
+                <div class="header">
+                    <h5 class="light-black text-left text-bolder" style="font-weight:bold;">Symptoms of COVID-19</h5>
+                </div>
+                <div class="body">
+                    <p class="light-black">The most common symptoms of COVID-19 are fever, tiredness, and dry cough. Some patients may have aches and pains, nasal congestion, runny nose, sore throat or diarrhea. These symptoms are usually mild and begin gradually. Some people become infected but don’t develop any symptoms and don't feel unwell. Most people (about 80%) recover from the disease without needing special treatment. Around 1 out of every 6 people who gets COVID-19 becomes seriously ill and develops difficulty breathing. Older people, and those with underlying medical problems like high blood pressure, heart problems or diabetes, are more likely to develop serious illness. People with fever, cough and difficulty breathing should seek medical attention.</p>
 
-        <div id="header">
-            <h2 class="black-text mb-0 text-center font-weight-bold">COVID-19 stats in India</h2>
-        </div>
-        <div id="main">
-            <div class="stats-cards row">
-                <div class="col-md-2">
-                    <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header purple-gradient">
-                        <div class="card-body">
-                            <h4 class="white-text mb-0">Total Cases</h4>
-                            <h2 class="white-text mb-0" id="total_cases"></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header blue-gradient">
-                        <div class="card-body">
-                            <h4 class="white-text mb-0">Indians</h4>
-                            <h2 class="white-text mb-0" id="indians"></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header aqua-gradient">
-                        <div class="card-body">
-                            <h4 class="white-text mb-0">Foreigners</h4>
-                            <h2 class="white-text mb-0" id="foreigners"></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header peach-gradient">
-                        <div class="card-body">
-                            <h4 class="white-text mb-0">Deaths</h4>
-                            <h2 class="white-text mb-0" id="deaths"></h2>
-                        </div>
-                    </div>
+                    <img class="symptoms-image" src="./images/cough.svg"/>
+                    <img class="symptoms-image" src="./images/fever.svg"/>
+                    <img class="symptoms-image" src="./images/runny_nose.svg"/>
+                    <img class="symptoms-image" src="./images/tired.svg"/>
                 </div>
             </div>
-
-            <div class="stats-cards row">
-                    <div class="col-md-2">
-                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header ripe-malinka-gradient">
-                            <div class="card-body">
-                                <h4 class="white-text mb-0">Active Cases</h4>
-                                <h2 class="white-text mb-0" id="active_cases"></h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header sunny-morning-gradient">
-                            <div class="card-body">
-                                <h4 class="white-text mb-0">Today's Cases</h4>
-                                <h2 class="white-text mb-0" id="today_cases"></h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header purple-gradient">
-                            <div class="card-body">
-                                <h4 class="white-text mb-0">Growth Rate</h4>
-                                <h2 class="white-text mb-0" id="growth_rate"></h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header near-moon-gradient">
-                            <div class="card-body">
-                                <h4 class="white-text mb-0">Cured</h4>
-                                <h2 class="white-text mb-0" id="cured"></h2>
-                            </div>
-                        </div>
-                    </div>
-            </div><br/>
-
-            <div class="charts row">
-                <div class="col-md-10">
-                    <canvas id="canvas"></canvas>
+        </div>
+        <div id="info-prevention">
+            <div class="card">
+                <div class="header">
+                    <h5 class="light-black text-left text-bolder" style="font-weight:bold;">Protection measures for everyone</h5>
                 </div>
-            </div><br/>
-
-            <div id="stats-table" class="row">
-                <div class="stats-table-main col-md-12">
-                        <div class="table-responsive">
-                        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                                <thead>
-                                  <tr>
-                                    <th class="th-sm">State
-                                    </th>
-                                    <th class="th-sm">Total Cases
-                                    </th>
-                                    <th class="th-sm">Indians
-                                    </th>
-                                    <th class="th-sm">Foreigners
-                                    </th>
-                                    <th class="th-sm">Deaths
-                                    </th>
-                                    <th class="th-sm">Cured
-                                    </th>
-                                  </tr>
-                                </thead>
-                                <tbody id="table-body">
-                                    
-                                </tbody>
-                        </table>
-                        </div>
+                <div class="body">
+                    <p class="light-black">Stay aware of the latest information on the COVID-19 outbreak, available on the WHO website and through your national and local public health authority. Many countries around the world have seen cases of COVID-19 and several have seen outbreaks. Authorities in China and some other countries have succeeded in slowing or stopping their outbreaks. However, the situation is unpredictable so check regularly for the latest news. <br/><br/> You can reduce your chances of being infected or spreading COVID-19 by taking some simple precautions:</p>
+                    <ul>
+                        <li>
+                            <p>Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water. <br/>Why? Washing your hands with soap and water or using alcohol-based hand rub kills viruses that may be on your hands.</p>
+                        </li>
+                        <li>
+                            <p>Maintain at least 1 metre (3 feet) distance between yourself and anyone who is coughing or sneezing.<br/>Why? When someone coughs or sneezes they spray small liquid droplets from their nose or mouth which may contain virus. If you are too close, you can breathe in the droplets, including the COVID-19 virus if the person coughing has the disease.</p>
+                        </li>
+                        <li>
+                            <p>Avoid touching eyes, nose and mouth. Why? Hands touch many surfaces and can pick up viruses. Once contaminated, hands can transfer the virus to your eyes, nose or mouth. From there, the virus can enter your body and can make you sick.</p>
+                        </li>
+                        <li>
+                            <p>Make sure you, and the people around you, follow good respiratory hygiene. This means covering your mouth and nose with your bent elbow or tissue when you cough or sneeze. Then dispose of the used tissue immediately. <br/>Why? Droplets spread virus. By following good respiratory hygiene you protect the people around you from viruses such as cold, flu and COVID-19.</p>
+                        </li>
+                        <li>
+                            <p>Stay home if you feel unwell. If you have a fever, cough and difficulty breathing, seek medical attention and call in advance. Follow the directions of your local health authority. Why? National and local authorities will have the most up to date information on the situation in your area. Calling in advance will allow your health care provider to quickly direct you to the right health facility. This will also protect you and help prevent spread of viruses and other infections.</p>
+                        </li>
+                        <li>
+                            <p>Keep up to date on the latest COVID-19 hotspots (cities or local areas where COVID-19 is spreading widely). If possible, avoid traveling to places  – especially if you are an older person or have diabetes, heart or lung disease. <br/>Why? You have a higher chance of catching COVID-19 in one of these areas.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="info-others">
+            <div class="card">
+                <div class="header">
+                    <h5 class="light-black text-left text-bolder" style="font-weight:bold;">Other useful resources</h5>
+                </div>
+                <div class="body">
+                    <ul>
+                        <li>
+                            WHO<a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/" target="_BLANK"> (https://www.who.int/emergencies/diseases/novel-coronavirus-2019/)</a>
+                        </li>
+                        <li>
+                            CDC<a href="https://www.cdc.gov/coronavirus/2019-ncov/faq.html" target="_BLANK"> (https://www.cdc.gov/coronavirus/2019-ncov/faq.html)</a>
+                        </li>
+                        <li>
+                            MOHFW<a href="https://www.mohfw.gov.in/" target="_BLANK"> (https://www.mohfw.gov.in/)</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -186,17 +141,7 @@
             <span class="pl-3"></span>Contributor : <a href="http://harshsaglani.byethost13.com" target="_BLANK" style="text-decoration: none;color: white"> Harsh Saglani</a></p>
         </div>
     </body>
-
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/datatables.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/chart.js"></script>
     <script type="text/javascript" src="js/mdb.js"></script>
-    <script>
-        $(document).ready(function () {
-            load();
-            loadChart();
-        });
-    </script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </html>

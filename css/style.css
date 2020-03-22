@@ -9,17 +9,24 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     margin-right: 0px !important;
     margin-left: 0px !important;
 }
 
+.stats-cards .col-md-2 {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
 #header {
     margin: 20px;
 }
 
 .card {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 
@@ -34,7 +41,7 @@ hr {
 .stats-table-main {
     display: flex;
     margin: auto;
-    width: 83%;
+    width: 79%;
 }
 
 #stats-table .col-md-12 {
@@ -50,6 +57,16 @@ hr {
     margin: 0px;
 }
 
+.charts.row {
+    margin: 0px;
+}
+
+.charts .col-md-10 {
+    margin:auto;
+}
+
+
+
 @media only screen and (max-width: 600px) {
     .stats-table-main {
         display: flex;
@@ -59,6 +76,71 @@ hr {
     .table-responsive {
         overflow-x: auto;
     }
+
+    .stats-cards .col-md-2 {
+        width:50%;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .stats-cards .card {
+        margin-bottom: 15px;
+        margin-top:15px;
+    }
+
+    .stats-cards .card-body h4 {
+        font-size: 1.1rem;
+    }
+
+    .brand.col-md-12 {
+        width:auto;
+    }
+
+    .brand.row {
+        flex-wrap: unset;
+    }
+
+    .navbar-toggler {
+        float:right;
+        padding-top: 9%;
+    }
+
+    #helplines .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #helplines .card {
+        margin: 0px !important;
+    }
+
+    #helplines #main-help-p {
+        display: block !important;
+        text-align: left !important;
+        float: left !important;
+        padding-left: 10px !important;
+    }
+
+    #helplines #main-card {
+        height: 8rem;
+    }
+
+    #nav #nav-bar-github {
+        float: left;
+        padding-bottom: 10px;
+    }
+
+    #helplines {
+        min-height: 400px !important;
+    }
+}
+
+@media only screen and (max-width:340px) {
+    #helplines #main-card {
+        height: 10rem !important;
+    }
+
 }
 
 #footer {
@@ -71,4 +153,104 @@ hr {
 
 #footer svg {
     padding-left: 10px;
+}
+
+#nav .navbar {
+    display: block;
+}
+
+#nav a {
+    margin: 0px;
+    outline: none;
+    /* width: 100%;
+    text-align: center; */
+}
+
+#nav li {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+#basicExampleNav .navbar-nav {
+    padding: 0px;
+    margin: auto;
+}
+
+    
+.brand.col-md-12 {
+    text-align: center;
+}
+
+#nav .navbar-brand {
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 2.3rem;
+}
+
+#nav #nav-bar-github {
+    padding-left: 8px;
+    vertical-align: super;
+}
+
+#helplines {
+    margin-top: 40px;
+    padding-bottom: 40px;
+    min-height: 300px;
+}
+
+#helplines .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    height: 6rem;
+    margin: 6px;
+}
+  
+#helplines .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+#helplines .cards {
+    max-width: 1200px;  
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+#helplines .card .header {
+    min-height: 50px;
+}
+
+#helplines .card .header h6{
+    padding-top: 10px;
+    font-weight: 200;
+}
+
+@media (min-width: 900px) {
+    #helplines .cards { grid-template-columns: repeat(5, 1fr); }
+}
+
+.light-black {
+    color: #323232;
+}
+
+#info-symptoms {
+    margin: 20px;
+}
+
+#info-symptoms .card {
+    padding: 20px;
+}
+
+#info-prevention, #info-others {
+    margin: 20px;
+}
+
+#info-prevention .card, #info-others .card {
+    padding: 20px;
+}
+
+.symptoms-image {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
 }

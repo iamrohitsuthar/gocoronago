@@ -34,133 +34,40 @@
                     <div class="col-md-12">
                         <div class="collapse navbar-collapse" id="basicExampleNav">  
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
-                                <a class="nav-link" href="#">Home
-                                    <span class="sr-only">(current)</span>
-                                </a>
+                                <li class="nav-item">
+                                <a class="nav-link" href="./index.html">Home</a>
                                 </li>
                                 <li class="nav-item">
                                 <a class="nav-link" href="./info.html">Related Information</a>
                                 </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="./helplines.html">Helpline</a>
+                                <li class="nav-item active">
+                                <a class="nav-link" href="#">Helpline
+                                    <span class="sr-only">(current)</span>
+                                </a>
                                 </li>  
                             </ul>
                         </div>
                     </div>
                 </div>
-
             </nav>
         </div>
-
-        <div id="header">
-            <h2 class="black-text mb-0 text-center font-weight-bold">COVID-19 stats in India</h2>
-        </div>
-        <div id="main">
-            <div class="stats-cards row">
-                <div class="col-md-2">
-                    <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header purple-gradient">
-                        <div class="card-body">
-                            <h4 class="white-text mb-0">Total Cases</h4>
-                            <h2 class="white-text mb-0" id="total_cases"></h2>
-                        </div>
+        <div class="container">
+            <div id="helplines">
+                <div id="main-card" class="card">
+                    <div class="header">
+                        <h5 class="mb-0 text-center" style="color: #323232; padding-top:10px;">Ministry of Health & Family Welfare</h5>
+                    </div>
+                    <div class="body">
+                        <p id="main-help-p" class="black-text mb-0 text-left" style="display: inline; padding-left: 10px;">Helpline Number: <a href='tel:+911123978046'>+91-11-23978046</a></p>
+                        <p id="main-help-p" class="black-text mb-0 text-right" style="display:inline; float:right; padding-right:10px;">Helpline Email ID: <a href="mailto:ncov2019@gov.in">ncov2019@gov.in</a></p>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header blue-gradient">
-                        <div class="card-body">
-                            <h4 class="white-text mb-0">Indians</h4>
-                            <h2 class="white-text mb-0" id="indians"></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header aqua-gradient">
-                        <div class="card-body">
-                            <h4 class="white-text mb-0">Foreigners</h4>
-                            <h2 class="white-text mb-0" id="foreigners"></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header peach-gradient">
-                        <div class="card-body">
-                            <h4 class="white-text mb-0">Deaths</h4>
-                            <h2 class="white-text mb-0" id="deaths"></h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="stats-cards row">
-                    <div class="col-md-2">
-                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header ripe-malinka-gradient">
-                            <div class="card-body">
-                                <h4 class="white-text mb-0">Active Cases</h4>
-                                <h2 class="white-text mb-0" id="active_cases"></h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header sunny-morning-gradient">
-                            <div class="card-body">
-                                <h4 class="white-text mb-0">Today's Cases</h4>
-                                <h2 class="white-text mb-0" id="today_cases"></h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header purple-gradient">
-                            <div class="card-body">
-                                <h4 class="white-text mb-0">Growth Rate</h4>
-                                <h2 class="white-text mb-0" id="growth_rate"></h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header near-moon-gradient">
-                            <div class="card-body">
-                                <h4 class="white-text mb-0">Cured</h4>
-                                <h2 class="white-text mb-0" id="cured"></h2>
-                            </div>
-                        </div>
-                    </div>
-            </div><br/>
-
-            <div class="charts row">
-                <div class="col-md-10">
-                    <canvas id="canvas"></canvas>
-                </div>
-            </div><br/>
-
-            <div id="stats-table" class="row">
-                <div class="stats-table-main col-md-12">
-                        <div class="table-responsive">
-                        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                                <thead>
-                                  <tr>
-                                    <th class="th-sm">State
-                                    </th>
-                                    <th class="th-sm">Total Cases
-                                    </th>
-                                    <th class="th-sm">Indians
-                                    </th>
-                                    <th class="th-sm">Foreigners
-                                    </th>
-                                    <th class="th-sm">Deaths
-                                    </th>
-                                    <th class="th-sm">Cured
-                                    </th>
-                                  </tr>
-                                </thead>
-                                <tbody id="table-body">
-                                    
-                                </tbody>
-                        </table>
-                        </div>
+                <br>
+                <div id="help-cards" class="cards">
                 </div>
             </div>
         </div>
+
         <div id="footer" class="blue-gradient">
             <p class="white-text mb-0 text-center" style="font-size: 1.3rem;">Made with<svg id="i-heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                 <path stroke-width="0" fill="#f44336" d="M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z" />
@@ -185,18 +92,15 @@
             <p class="white-text mb-0 text-center" style="padding-top: 10px !important;">Checkout <a href="https://github.com/amodm/api-covid19-in" target="_BLANK" style="text-decoration: none;color: white">COVID-19 Stats API</a>
             <span class="pl-3"></span>Contributor : <a href="http://harshsaglani.byethost13.com" target="_BLANK" style="text-decoration: none;color: white"> Harsh Saglani</a></p>
         </div>
+            
     </body>
-
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/datatables.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/chart.js"></script>
     <script type="text/javascript" src="js/mdb.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
-            load();
-            loadChart();
+            getHelplines();
         });
     </script>
 </html>
