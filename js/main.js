@@ -25,6 +25,18 @@ function load() {
     });
 }
 
+function getHelplines() {
+    $.getJSON('https://api.rootnet.in/covid19-in/contacts', function(result) {
+        $.each(result['data']['contacts']['regional'], function(key, value) {
+            var mobile = value['number'];
+            if(mobile.indexOf(',') > 0)
+                mobile = mobile.substring(0,mobile.indexOf(','));
+            var data = "<div class='card'> <div class='header'><h6 class='mb-0 text-center' style='color: #323232'>"+value['loc']+"</h6> </div> <div class='body'><p class='black-text mb-0 text-center'>"+mobile+"</p></div></div>";
+            $('#help-cards').append(data);
+        });
+    });
+}
+
 const isToday = (someDate) => {
     const today = new Date()
     return someDate.getDate() == today.getDate() &&
