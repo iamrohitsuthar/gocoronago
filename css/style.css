@@ -182,9 +182,9 @@ hr {
 }
 
 #nav .navbar-brand {
-    font-family: cursive;
     font-weight: bold;
     font-size: 2.3rem;
+    font-style: italic;
 }
 
 #nav #nav-bar-github {
@@ -253,4 +253,8 @@ hr {
     width: 100px;
     height: 100px;
     margin: 10px;
+}
+
+.title {
+    font-family: 'Raleway', sans-serif;
 }
