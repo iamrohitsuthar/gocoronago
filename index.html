@@ -12,10 +12,45 @@
         <link rel="stylesheet" href="css/datatables.min.css">
     </head>
     <body>
+        <div id="nav">
+            <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+                <div class="brand row">
+                    <div class="brand col-md-12">
+                        <a class="navbar-brand" href="#">GocoronaGo</a>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>    
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="collapse navbar-collapse" id="basicExampleNav">  
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                <a class="nav-link" href="#">Home
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="#">Features</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="#">Pricing</a>
+                                </li>  
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+
         <div id="header">
             <h2 class="black-text mb-0 text-center font-weight-bold">COVID-19 stats in India</h2>
         </div>
-        <hr/>
         <div id="main">
             <div class="stats-cards row">
                 <div class="col-md-2">
@@ -152,6 +187,7 @@
     <script type="text/javascript" src="js/datatables.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/chart.js"></script>
+    <script type="text/javascript" src="js/mdb.js"></script>
     <script>
         $(document).ready(function () {
             load();

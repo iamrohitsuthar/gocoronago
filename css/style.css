@@ -91,6 +91,19 @@ hr {
     .stats-cards .card-body h4 {
         font-size: 1.3rem;
     }
+
+    .brand.col-md-12 {
+        width:auto;
+    }
+
+    .brand.row {
+        flex-wrap: unset;
+    }
+
+    .navbar-toggler {
+        float:right;
+        padding-top: 9%;
+    }
 }
 
 #footer {
@@ -103,4 +116,30 @@ hr {
 
 #footer svg {
     padding-left: 10px;
+}
+
+#nav .navbar {
+    display: block;
+}
+
+#nav a {
+    margin: 0px;
+    /* width: 100%;
+    text-align: center; */
+}
+
+#basicExampleNav .navbar-nav {
+    padding: 0px;
+    margin: auto;
+}
+
+    
+.brand.col-md-12 {
+    text-align: center;
+}
+
+#nav .navbar-brand {
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 2.3rem;
 }
