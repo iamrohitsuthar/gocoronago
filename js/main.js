@@ -88,7 +88,7 @@ function getGrowthRate(res)
                 original = item;
             }
         });
-        return (sum/res.total.length);
+        return (sum/res.total.length).toFixed(2);
 }
 
 function loadChart() {
@@ -96,6 +96,7 @@ function loadChart() {
         if (data.success) {
             var chartData = getDataForChart(data['data']);
             var avgGrowthRate = getGrowthRate(chartData);
+            document.getElementById('growth_rate').innerHTML = avgGrowthRate + '%';
             chartInit(chartData);
         } else {
             console.log("API DOWN");
