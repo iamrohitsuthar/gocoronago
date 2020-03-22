@@ -13,10 +13,29 @@ function getDataForChart(data) {
     return result;
 }
 
+function getGrowthRate(res)
+{   
+        let original = 0;
+        let sum = 0;
+        $.each(res.total, function(i,item){
+            if( i == 0 )
+                original = item;
+            else
+            {
+                var rate = (( item - original ) / original) * 100;
+                sum += rate;
+                original = item;
+            }
+        });
+        return (sum/res.total.length);
+}
+
 function loadChart() {
     $.getJSON('https://api.rootnet.in/covid19-in/stats/daily', function(data) {
         if (data.success) {
-            chartInit(getDataForChart(data['data']));
+            var chartData = getDataForChart(data['data']);
+            var avgGrowthRate = getGrowthRate(chartData);
+            chartInit(chartData);
         } else {
             console.log("API DOWN");
             $('#canvas').css("display", "none");
