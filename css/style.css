@@ -65,6 +65,8 @@ hr {
     margin:auto;
 }
 
+
+
 @media only screen and (max-width: 600px) {
     .stats-table-main {
         display: flex;
@@ -109,6 +111,10 @@ hr {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    #helplines .card {
+        margin: 0px !important;
+    }
+
     #helplines #main-help-p {
         display: block !important;
         text-align: left !important;
@@ -128,6 +134,13 @@ hr {
     #helplines {
         min-height: 400px !important;
     }
+}
+
+@media only screen and (max-width:340px) {
+    #helplines #main-card {
+        height: 10rem !important;
+    }
+
 }
 
 #footer {
@@ -204,7 +217,7 @@ hr {
 }
 
 #helplines .card .header {
-    min-height: 60px;
+    min-height: 50px;
 }
 
 #helplines .card .header h6{
