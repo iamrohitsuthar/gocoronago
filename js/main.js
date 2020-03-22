@@ -31,7 +31,7 @@ function getHelplines() {
             var mobile = value['number'];
             if(mobile.indexOf(',') > 0)
                 mobile = mobile.substring(0,mobile.indexOf(','));
-            var data = "<div class='card'> <div class='header'><h6 class='mb-0 text-center' style='color: #323232'>"+value['loc']+"</h6> </div> <div class='body'><p class='black-text mb-0 text-center'>"+mobile+"</p></div></div>";
+                var data = "<div class='card'> <div class='header'><h6 class='mb-0 text-center' style='color: #323232'>"+value['loc']+"</h6> </div> <div class='body'><p class='black-text mb-0 text-center'><a href='tel:"+mobile.replace(new RegExp('-', 'g'),"")+"'>"+mobile+"</a></p></div></div>";
             $('#help-cards').append(data);
         });
     });
