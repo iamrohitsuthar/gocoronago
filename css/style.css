@@ -9,17 +9,24 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     margin-right: 0px !important;
     margin-left: 0px !important;
 }
 
+.stats-cards .col-md-2 {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
 #header {
     margin: 20px;
 }
 
 .card {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 
@@ -34,7 +41,7 @@ hr {
 .stats-table-main {
     display: flex;
     margin: auto;
-    width: 83%;
+    width: 79%;
 }
 
 #stats-table .col-md-12 {
@@ -50,6 +57,14 @@ hr {
     margin: 0px;
 }
 
+.charts.row {
+    margin: 0px;
+}
+
+.charts .col-md-10 {
+    margin:auto;
+}
+
 @media only screen and (max-width: 600px) {
     .stats-table-main {
         display: flex;
@@ -58,6 +73,23 @@ hr {
     }
     .table-responsive {
         overflow-x: auto;
+    }
+
+    .stats-cards .col-md-2 {
+        width:50%;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .stats-cards .card {
+        margin-bottom: 15px;
+        margin-top:15px;
+    }
+
+    .stats-cards .card-body h4 {
+        font-size: 1.3rem;
     }
 }
 

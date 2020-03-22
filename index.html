@@ -50,19 +50,49 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header near-moon-gradient">
-                        <div class="card-body">
-                            <h4 class="white-text mb-0">Cured</h4>
-                            <h2 class="white-text mb-0" id="cured"></h2>
+            </div>
+
+            <div class="stats-cards row">
+                    <div class="col-md-2">
+                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header purple-gradient">
+                            <div class="card-body">
+                                <h4 class="white-text mb-0">Active Cases</h4>
+                                <h2 class="white-text mb-0" id="active_cases">230</h2>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="col-md-2">
+                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header blue-gradient">
+                            <div class="card-body">
+                                <h4 class="white-text mb-0">Today Cases</h4>
+                                <h2 class="white-text mb-0" id="today_cases">0</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header purple-gradient">
+                            <div class="card-body">
+                                <h4 class="white-text mb-0">Growth Rate</h4>
+                                <h2 class="white-text mb-0" id="growth_rate">15%</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header near-moon-gradient">
+                            <div class="card-body">
+                                <h4 class="white-text mb-0">Cured</h4>
+                                <h2 class="white-text mb-0" id="cured"></h2>
+                            </div>
+                        </div>
+                    </div>
+            </div><br/>
+
+            <div class="charts row">
                 <div class="col-md-10">
                     <canvas id="canvas"></canvas>
                 </div>
-            </div>
-            
+            </div><br/>
+
             <div id="stats-table" class="row">
                 <div class="stats-table-main col-md-12">
                         <div class="table-responsive">
