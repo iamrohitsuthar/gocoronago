@@ -124,8 +124,14 @@ hr {
 
 #nav a {
     margin: 0px;
+    outline: none;
     /* width: 100%;
     text-align: center; */
+}
+
+#nav li {
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 #basicExampleNav .navbar-nav {
