@@ -88,7 +88,7 @@ function getGrowthRate(res)
                 original = item;
             }
         });
-        return (sum/res.total.length).toFixed(2);
+        return (sum/res.total.length).toFixed(1);
 }
 
 function loadChart() {
