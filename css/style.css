@@ -258,3 +258,19 @@ hr {
 .title {
     font-family: 'Raleway', sans-serif;
 }
+
+ #regions_div svg path[fill^='none'] {
+    stroke-width:0px;
+}
+
+#map{
+    display: flex;
+    margin-left: 10%;
+}
+#map-text{
+    font-weight: bold;
+    text-emphasis: none;
+}
+#map .row {
+  margin:0 !important;
+}
