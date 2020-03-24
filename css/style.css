@@ -134,9 +134,18 @@ hr {
     #helplines {
         min-height: 400px !important;
     }
+
+    #regions_div
+    {
+        width: auto;
+        height: 500px;
+    }
 }
 
 @media only screen and (max-width:340px) {
+
+    
+
     #helplines #main-card {
         height: 10rem !important;
     }
@@ -226,6 +235,8 @@ hr {
 }
 
 @media (min-width: 900px) {
+
+    
     #helplines .cards { grid-template-columns: repeat(5, 1fr); }
 }
 
@@ -263,14 +274,13 @@ hr {
     stroke-width:0px;
 }
 
-#map{
-    display: flex;
-    margin-left: 10%;
+
+#map {
+    display: block;
+    margin: 0 auto;
 }
+
 #map-text{
     font-weight: bold;
     text-emphasis: none;
-}
-#map .row {
-  margin:0 !important;
 }
