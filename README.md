@@ -51,5 +51,10 @@ If you find a bug (the application couldn't handle the query and / or gave undes
 
 If you'd like to request a new function, feel free to do so by opening an issue [here](https://github.com/iamrohitsuthar/gocoronago/issues/new).
 
+### Contributors
+<a href="https://github.com/iamrohitsuthar/gocoronago/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=iamrohitsuthar/gocoronago" />
+</a>
+
 ### Acknowledgements
 API - <a href="https://github.com/amodm/api-covid19-in" target="_BLANK">COVID-19 stats API</a>
