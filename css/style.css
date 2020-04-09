@@ -65,7 +65,62 @@ hr {
     margin:auto;
 }
 
+.mapContainer {
+    max-width: 700px;
+    margin: auto;
+}
 
+.state:hover {
+    fill-opacity: 0.5;
+}
+
+.legendLinear {
+    font-family: monospace;
+}
+
+#tooltip {   
+    position: absolute;           
+    text-align: center;
+    padding: 20px;             
+    margin: 10px;
+    font: 12px sans-serif;        
+    background: lightsteelblue;   
+    border: 1px;      
+    border-radius: 2px;           
+    pointer-events: none;         
+}
+
+#tooltip h4 {
+    margin: 5px;
+    font-size: 14px;
+}
+
+#tooltip {
+    background:rgba(0,0,0,0.9);
+    border:1px solid grey;
+    border-radius:5px;
+    font-size:12px;
+    width:auto;
+    padding:4px;
+    color:white;
+    opacity:0;
+}
+
+#tooltip table {
+    table-layout: auto;
+    margin: 5px;
+}
+
+#tooltip tr td:nth-child(1) {
+    text-align: left;
+    color: white;
+}
+
+#tooltip tr td:nth-child(2) {
+    padding-left: 8px;
+    text-align: right;
+    color: white;
+}
 
 @media only screen and (max-width: 600px) {
     .stats-table-main {

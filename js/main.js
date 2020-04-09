@@ -3,6 +3,7 @@ function load() {
         paging: false
     });
     $('.dataTables_length')['addClass']('bs-select');
+
     $.getJSON('https://api.rootnet.in/covid19-in/stats/latest', function(result) {
 
         var totalCases = result['data']['summary']['total'];
@@ -16,12 +17,21 @@ function load() {
         document.getElementById('deaths').innerHTML = deaths;
         document.getElementById('active_cases').innerHTML = totalCases - (deaths + cured);
 
+        var stateData = {};
+        var confirmed = [];
         $.each(result['data']['regional'], function(key, value) {
+            var state = value['loc']
             var confirmedCasesIndian = value['confirmedCasesIndian'];
             var confirmedCasesForeign = value['confirmedCasesForeign'];
             var total = confirmedCasesIndian + confirmedCasesForeign;
-            table['row']['add']([value['loc'], total, confirmedCasesIndian, confirmedCasesForeign, value['deaths'], value['discharged']])['draw'](false)
+            confirmed.push(total);
+            var discharged = value['discharged'];
+            var deaths = value['deaths'];
+            table['row']['add']([state, total, confirmedCasesIndian, confirmedCasesForeign, deaths, discharged])['draw'](false)
+            stateData[state] = [total, discharged, deaths];
         });
+        stateData['confirmed'] = confirmed;
+        choropleth(stateData);
     });
 }
 
@@ -194,4 +204,72 @@ function chartInit(chartData) {
     };
     var ctx = document.getElementById('canvas').getContext('2d');
     window.myLine = new Chart(ctx, config);
+}
+
+
+function choropleth(stateData) {
+    console.log(stateData);
+    maxConfirmed = stateData['confirmed'][0];
+    $.each(stateData['confirmed'], function (key, value) {
+        if (value > maxConfirmed) 
+            maxConfirmed = value;
+    });
+
+    function tooltipHtml(state, data) {
+        return "<h4>" + state + "</h4>" +
+            "<table>" +
+            "<tr><td>Confirmed</td><td>" + (data[0]) + "</td></tr>" +
+            "<tr><td>Discharged</td><td>" + (data[1]) + "</td></tr>" +
+            "<tr><td>Deaths</td><td>" + (data[2]) + "</td></tr>" +
+            "</table>";
+    }
+
+    states.draw("#mapsvg", stateData, maxConfirmed, tooltipHtml);
+
+    // Draw scale
+    const svg = d3.select("#mapsvg");
+
+    const maxInterpolation = 0.8;
+    const color = d3.scaleSequential(d3.interpolateReds)
+        .domain([0, maxConfirmed / maxInterpolation || 10]);
+
+    let cells = null;
+    let label = null;
+
+    label = ({ i, genLength, generatedLabels, labelDelimiter }) => {
+        if (i === genLength - 1) {
+            const n = Math.floor(generatedLabels[i]);
+            return `${n}+`;
+        } else {
+            const n1 = 1 + Math.floor(generatedLabels[i]);
+            const n2 = Math.floor(generatedLabels[i + 1]);
+            return `${n1} - ${n2}`;
+        }
+    };
+
+    const numCells = 6;
+    const delta = Math.floor((maxConfirmed < numCells ? numCells : maxConfirmed) / (numCells - 1));
+
+    cells = Array.from(Array(numCells).keys()).map((i) => i * delta);
+
+    svg
+        .append('g')
+        .attr('class', 'legendLinear')
+        .attr('transform', 'translate(40, 450)');
+
+    const legendLinear = d3.legendColor()
+        .shapeWidth(36)
+        .shapeHeight(10)
+        .cells(cells)
+        .titleWidth(3)
+        .labels(label)
+        .title('Confirmed Cases')
+        .orient('vertical')
+        .scale(color);
+
+    svg
+        .select('.legendLinear')
+        .call(legendLinear)
+        .selectAll('text')
+        .style('font-size', '10px');
 }
