@@ -161,6 +161,12 @@
                         </div>
                 </div>
             </div>
+
+            <div id="tooltip"></div>
+            <div class="mapContainer">
+                <svg id="mapsvg" viewbox="0 0 700 650"></svg>
+            </div>
+
         </div>
         <div id="footer" class="blue-gradient">
             <p class="white-text mb-0 text-center" style="font-size: 1.3rem;">Made with<svg id="i-heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
@@ -190,10 +196,14 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/datatables.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/chart.js"></script>
     <script type="text/javascript" src="js/mdb.js"></script>
+    <script type="text/javascript" src="js/chart.js"></script>
+    <script type="text/javascript" src="js/datatables.min.js"></script>
+    <script type="text/javascript" src="js/d3.v4.js"></script>
+    <script type="text/javascript" src="js/d3-scale-chromatic.v1.min.js"></script>
+    <script type="text/javascript" src="js/d3-legend.min.js"></script>
+    <script type="text/javascript" src="js/IndiaStates.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
     <script>
         $(document).ready(function () {
             load();
