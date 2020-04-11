@@ -114,20 +114,46 @@
 
     let states = {};
     states.draw = function (id, stateData, maxConfirmed, toolTip) {
-
         function mouseOver(d) {
             d3.select("#tooltip").transition().duration(200).style("opacity", .9);
-            if(d.state in stateData) {
-                d3.select("#tooltip").html(toolTip(d.state, stateData[d.state]))
-                .style("left", (d3.event.layerX) + "px")
-                .style("top", (d3.event.layerY) + "px");
+            let left = d3.event.layerX, top = d3.event.layerY;
+            let x = $("#mapsvg").position();
+            let containerWidth = $('#mapsvg').width(), containerHeight = $('#mapsvg').height();
+
+            if (d.state in stateData) {
+                d3.select("#tooltip").html(toolTip(d.state, stateData[d.state]));
+                let tooltipWidth = $('#tooltip').width(), tooltipHeight = $('#tooltip').height();;
+
+                if ((containerWidth - (left - x.left) - 10) < tooltipWidth) {
+                    left = left - tooltipWidth;
+                    if(left < 0) {
+						left = 0;
+					}
+                }
+
+                if ((containerHeight - (top - x.top) - 10) < tooltipHeight) {
+                    top = top - tooltipHeight;
+                }
+                
+                d3.select("#tooltip").style("left", left + "px").style("top", top + "px");
             }
-            else{
-                d3.select("#tooltip").html(toolTip(d.state, [0,0,0,0]))
-                .style("left", (d3.event.layerX) + "px")
-                .style("top", (d3.event.layerY) + "px");
+            else {
+                d3.select("#tooltip").html(toolTip(d.state, [0, 0, 0, 0]));
+                let tooltipWidth = $('#tooltip').width(), tooltipHeight = $('#tooltip').height();;
+
+                if ((containerWidth - (left - x.left) - 10) < tooltipWidth) {
+                    left = left - tooltipWidth;
+                    if(left < 0) {
+						left = 0;
+					}
+                }
+
+                if ((containerHeight - (top - x.top) - 10) < tooltipHeight) {
+                    top = top - tooltipHeight;
+                }
+
+                d3.select("#tooltip").style("left", left + "px").style("top", top + "px");
             }
-            
         }
 
         function mouseOut() {

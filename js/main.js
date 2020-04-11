@@ -208,7 +208,6 @@ function chartInit(chartData) {
 
 
 function choropleth(stateData) {
-    console.log(stateData);
     maxConfirmed = stateData['confirmed'][0];
     $.each(stateData['confirmed'], function (key, value) {
         if (value > maxConfirmed) 
@@ -219,7 +218,7 @@ function choropleth(stateData) {
         return "<h4>" + state + "</h4>" +
             "<table>" +
             "<tr><td>Confirmed</td><td>" + (data[0]) + "</td></tr>" +
-            "<tr><td>Discharged</td><td>" + (data[1]) + "</td></tr>" +
+            "<tr><td>Cured</td><td>" + (data[1]) + "</td></tr>" +
             "<tr><td>Deaths</td><td>" + (data[2]) + "</td></tr>" +
             "</table>";
     }
