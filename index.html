@@ -6,6 +6,7 @@
         <meta name="keywords" content="COVID,COVID-19,CoronaVirus,corona,gocorona,gocoronago,GocoronaGo,CoronaVirusStats,CoronaVirusStatistics,COVID-19stats,coronaliveupdates">
         <meta name="author" content="Rohit Suthar">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/mdb.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
@@ -138,7 +139,10 @@
                 <div class="stats-table-main col-md-12">
                         <div class="table-responsive">
                         <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                                <thead>
+                                <thead
+                                style="
+                                background: white;
+                            ">
                                   <tr>
                                     <th class="th-sm">State
                                     </th>
@@ -210,4 +214,16 @@
             loadChart();
         });
     </script>
+
+     <script src="js/jquery.floatThead.min.js"></script>
+     <script>        
+    $(function(){
+        var $table = $('#dtBasicExample');
+        $("#dtBasicExample").floatThead({
+            responsiveContainer: function($table){
+                return $table.closest(".table-responsive");
+            }
+        });        
+    });
+     </script>
 </html>
