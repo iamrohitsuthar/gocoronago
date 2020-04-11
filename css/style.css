@@ -68,6 +68,7 @@ hr {
 .mapContainer {
     max-width: 700px;
     margin: auto;
+    padding: 16px;
 }
 
 .state:hover {
@@ -82,7 +83,7 @@ hr {
     position: absolute;           
     text-align: center;
     padding: 20px;             
-    margin: 10px;
+    margin: 5px;
     font: 12px sans-serif;        
     background: lightsteelblue;   
     border: 1px;      
@@ -100,7 +101,7 @@ hr {
     border:1px solid grey;
     border-radius:5px;
     font-size:12px;
-    width:auto;
+    width: auto;
     padding:4px;
     color:white;
     opacity:0;
@@ -196,6 +197,12 @@ hr {
         height: 10rem !important;
     }
 
+}
+
+@media only screen and (max-width:200px) {
+    #tooltip {
+        max-width: 150px;
+    }
 }
 
 #footer {
