@@ -1,4 +1,5 @@
 var maxConfirmed = 0, maxCured = 0, maxDeaths = 0;
+var st = ["Andaman and Nicobar Islands", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Daman and Diu", "Dadra and Nagar Haveli", "Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Ladakh", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Pondicherry", "Rajasthan", "Sikkim", "Tamil Nadu", "Tripura", "Telengana", "Uttar Pradesh", "Uttarakhand", "West Bengal"]
 var stateData = {};
 
 $("#choropleth_switch_1").click(function () {
@@ -34,7 +35,15 @@ function load() {
         document.getElementById('active_cases').innerHTML = totalCases - (deaths + cured);
 
         $.each(result['data']['regional'], function(key, value) {
-            var state = value['loc']
+            var state = value['loc'];
+            var index;
+            for (index = 0; index < st.length; index++) {
+                var element = st[index];
+                if (state.includes(element)) {
+                    break;
+                }
+            }
+            
             var confirmedCasesIndian = value['confirmedCasesIndian'];
             var confirmedCasesForeign = value['confirmedCasesForeign'];
             var confirmed = confirmedCasesIndian + confirmedCasesForeign;
@@ -42,7 +51,7 @@ function load() {
             var deaths = value['deaths'];
 
             table['row']['add']([state, confirmed, confirmedCasesIndian, confirmedCasesForeign, deaths, cured])['draw'](false)
-            stateData[state] = [confirmed, cured, deaths];
+            stateData[st[index]] = [confirmed, cured, deaths];
 
             if (confirmed > maxConfirmed) {
                 maxConfirmed = confirmed;
