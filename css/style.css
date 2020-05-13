@@ -71,6 +71,13 @@ hr {
     padding: 16px;
 }
 
+.switch-choropleth {
+    margin: auto; 
+    padding: 15px; 
+    width: 79%;
+    visibility: hidden;
+}
+
 .state:hover {
     fill-opacity: 0.5;
 }
@@ -124,6 +131,12 @@ hr {
 }
 
 @media only screen and (max-width: 600px) {
+    .switch-choropleth {
+        display: flex;
+        width: 96%;
+        margin: auto;
+    }
+
     .stats-table-main {
         display: flex;
         margin: auto;
@@ -197,6 +210,12 @@ hr {
         height: 10rem !important;
     }
 
+}
+
+@media (max-width: 767px) {
+    .dataTables_info {
+        text-align: start !important;
+    }
 }
 
 @media only screen and (max-width:200px) {

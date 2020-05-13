@@ -1,3 +1,20 @@
+var maxConfirmed = 0, maxCured = 0, maxDeaths = 0;
+var st = ["Andaman and Nicobar Islands", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Daman and Diu", "Dadra and Nagar Haveli", "Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Ladakh", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Pondicherry", "Rajasthan", "Sikkim", "Tamil Nadu", "Tripura", "Telengana", "Uttar Pradesh", "Uttarakhand", "West Bengal"]
+var stateData = {};
+
+$("#choropleth_switch_1").click(function () {
+    choropleth(0, maxConfirmed);
+});
+
+$("#choropleth_switch_2").click(function () {
+    choropleth(1, maxCured);
+});
+
+$("#choropleth_switch_3").click(function () {
+    choropleth(2, maxDeaths);
+});
+
+
 function load() {
     var table = $('#dtBasicExample').DataTable({
         paging: false
@@ -17,21 +34,38 @@ function load() {
         document.getElementById('deaths').innerHTML = deaths;
         document.getElementById('active_cases').innerHTML = totalCases - (deaths + cured);
 
-        var stateData = {};
-        var confirmed = [];
         $.each(result['data']['regional'], function(key, value) {
-            var state = value['loc']
+            var state = value['loc'];
+            var index;
+            for (index = 0; index < st.length; index++) {
+                var element = st[index];
+                if (state.includes(element)) {
+                    break;
+                }
+            }
+            
             var confirmedCasesIndian = value['confirmedCasesIndian'];
             var confirmedCasesForeign = value['confirmedCasesForeign'];
-            var total = confirmedCasesIndian + confirmedCasesForeign;
-            confirmed.push(total);
-            var discharged = value['discharged'];
+            var confirmed = confirmedCasesIndian + confirmedCasesForeign;
+            var cured = value['discharged'];
             var deaths = value['deaths'];
-            table['row']['add']([state, total, confirmedCasesIndian, confirmedCasesForeign, deaths, discharged])['draw'](false)
-            stateData[state] = [total, discharged, deaths];
+
+            table['row']['add']([state, confirmed, confirmedCasesIndian, confirmedCasesForeign, deaths, cured])['draw'](false)
+            stateData[st[index]] = [confirmed, cured, deaths];
+
+            if (confirmed > maxConfirmed) {
+                maxConfirmed = confirmed;
+            }
+            if (cured > maxCured) {
+                maxCured = cured;
+            }
+            if (deaths > maxDeaths) {
+                maxDeaths = deaths;
+            }
         });
-        stateData['confirmed'] = confirmed;
-        choropleth(stateData);
+        
+        document.getElementsByClassName('switch-choropleth')[0].style.visibility = 'visible';
+        choropleth(0, maxConfirmed);
     });
 }
 
@@ -207,12 +241,21 @@ function chartInit(chartData) {
 }
 
 
-function choropleth(stateData) {
-    maxConfirmed = stateData['confirmed'][0];
-    $.each(stateData['confirmed'], function (key, value) {
-        if (value > maxConfirmed) 
-            maxConfirmed = value;
-    });
+function choropleth(choroplethType, maxCount) {
+    var title;
+    switch (choroplethType) {
+        case 0:
+            title = 'Confirmed Cases';
+            break;
+        case 1:
+            title = 'Cured Cases';
+            break;
+        case 2:
+            title = 'Death Cases';
+            break;
+        default:
+            break;
+    }
 
     function tooltipHtml(state, data) {
         return "<h4>" + state + "</h4>" +
@@ -222,15 +265,21 @@ function choropleth(stateData) {
             "<tr><td>Deaths</td><td>" + (data[2]) + "</td></tr>" +
             "</table>";
     }
-
-    states.draw("#mapsvg", stateData, maxConfirmed, tooltipHtml);
+    
+    states.draw("#mapsvg", choroplethType, stateData, maxCount, tooltipHtml);
 
     // Draw scale
     const svg = d3.select("#mapsvg");
 
     const maxInterpolation = 0.8;
-    const color = d3.scaleSequential(d3.interpolateReds)
-        .domain([0, maxConfirmed / maxInterpolation || 10]);
+    var color;
+    choroplethType === 0 ?
+        color = d3.scaleSequential(d3.interpolateReds).domain([0, maxCount / maxInterpolation || 10])
+        : choroplethType === 1 ?
+            color = d3.scaleSequential(d3.interpolateGreens).domain([0, maxCount / maxInterpolation || 10])
+            : choroplethType === 2 ?
+                color = d3.scaleSequential(d3.interpolateGreys).domain([0, maxCount / maxInterpolation || 10])
+                : '';
 
     let cells = null;
     let label = null;
@@ -247,7 +296,7 @@ function choropleth(stateData) {
     };
 
     const numCells = 6;
-    const delta = Math.floor((maxConfirmed < numCells ? numCells : maxConfirmed) / (numCells - 1));
+    const delta = Math.floor((maxCount < numCells ? numCells : maxCount) / (numCells - 1));
 
     cells = Array.from(Array(numCells).keys()).map((i) => i * delta);
 
@@ -262,7 +311,7 @@ function choropleth(stateData) {
         .cells(cells)
         .titleWidth(3)
         .labels(label)
-        .title('Confirmed Cases')
+        .title(title)
         .orient('vertical')
         .scale(color);
 

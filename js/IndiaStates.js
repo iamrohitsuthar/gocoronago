@@ -113,7 +113,7 @@
 
 
     let states = {};
-    states.draw = function (id, stateData, maxConfirmed, toolTip) {
+    states.draw = function (id, choroplethType, stateData, maxCount, toolTip) {
         function mouseOver(d) {
             d3.select("#tooltip").transition().duration(200).style("opacity", .9);
             let left = d3.event.layerX, top = d3.event.layerY;
@@ -160,19 +160,38 @@
             d3.select("#tooltip").transition().duration(500).style("opacity", 0);
         }
 
+        d3.selectAll(".state").remove();
         d3.select(id).selectAll(".state")
                 .data(IndiaStatePaths).enter().append("path").attr("class", "state").attr("d", function (d) {
                     return d.path;
                 })
                 .style("fill", function(d){
                     if(d.state in stateData) {
-                        return d3.interpolateReds((0.8 * stateData[d.state][0]) / (maxConfirmed || 0.001));
+                        if (choroplethType === 0) {
+                            return d3.interpolateReds((0.8 * stateData[d.state][0]) / (maxCount || 0.001));
+                        }
+                        if (choroplethType === 1) {
+                            return d3.interpolateGreens((0.8 * stateData[d.state][1]) / (maxCount || 0.001));
+                        }
+                        if (choroplethType === 2) {
+                            return d3.interpolateGreys((0.8 * stateData[d.state][2]) / (maxCount || 0.001));
+                        }
                     }
                     else {
                         return '#ffffff';
                     }
                 })
-                .style("stroke", "#ff073a20")
+                .style("stroke", function () {
+                    if (choroplethType === 0) {
+                        return "#ff073a20";
+                    }
+                    if (choroplethType === 1) {
+                        return "#28a74520";
+                    }
+                    if (choroplethType === 2) {
+                        return "#6c757d30";
+                    }
+                })
                 .style("stroke-width", "2")
                 .on("mousemove", mouseOver)
                 .on("mouseout", mouseOut);
