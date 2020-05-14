@@ -1,245 +1,259 @@
 <html>
-    <head>
-        <title>GocoronaGo - COVID-19 stats in India</title>
-        <meta charset="UTF-8">
-        <meta name="description" content="COVID-19 CoronaVirus stats in India">
-        <meta name="keywords" content="COVID,COVID-19,CoronaVirus,corona,gocorona,gocoronago,GocoronaGo,CoronaVirusStats,CoronaVirusStatistics,COVID-19stats,coronaliveupdates">
-        <meta name="author" content="Rohit Suthar">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/mdb.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/datatables.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet"> 
-    </head>
-    <body>
-        <div id="nav">
-            <nav class="navbar navbar-expand-lg navbar-dark primary-color">
-                <div class="brand row">
-                    <div class="brand col-md-12">
-                        <a class="navbar-brand title" href="./index.html">GocoronaGo</a>
-                        <a id="nav-bar-github" href="https://github.com/iamrohitsuthar/gocoronago" target="_BLANK" style="color:#212529;">
-                            <svg id="i-github" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32" height="32">
-                                <path stroke-width="0" fill="#212529" d="M32 0 C14 0 0 14 0 32 0 53 19 62 22 62 24 62 24 61 24 60 L24 55 C17 57 14 53 13 50 13 50 13 49 11 47 10 46 6 44 10 44 13 44 15 48 15 48 18 52 22 51 24 50 24 48 26 46 26 46 18 45 12 42 12 31 12 27 13 24 15 22 15 22 13 18 15 13 15 13 20 13 24 17 27 15 37 15 40 17 44 13 49 13 49 13 51 20 49 22 49 22 51 24 52 27 52 31 52 42 45 45 38 46 39 47 40 49 40 52 L40 60 C40 61 40 62 42 62 45 62 64 53 64 32 64 14 50 0 32 0 Z" />
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+
+<head>
+    <title>GocoronaGo - COVID-19 stats in India</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="COVID-19 CoronaVirus stats in India">
+    <meta name="keywords"
+        content="COVID,COVID-19,CoronaVirus,corona,gocorona,gocoronago,GocoronaGo,CoronaVirusStats,CoronaVirusStatistics,COVID-19stats,coronaliveupdates">
+    <meta name="author" content="Rohit Suthar">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/datatables.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="nav">
+        <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+            <div class="brand row">
+                <div class="brand col-md-12">
+                    <a class="navbar-brand title" href="./index.html">GocoronaGo</a>
+                    <a id="nav-bar-github" href="https://github.com/iamrohitsuthar/gocoronago" target="_BLANK"
+                        style="color:#212529;">
+                        <svg id="i-github" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32"
+                            height="32">
+                            <path stroke-width="0" fill="#212529"
+                                d="M32 0 C14 0 0 14 0 32 0 53 19 62 22 62 24 62 24 61 24 60 L24 55 C17 57 14 53 13 50 13 50 13 49 11 47 10 46 6 44 10 44 13 44 15 48 15 48 18 52 22 51 24 50 24 48 26 46 26 46 18 45 12 42 12 31 12 27 13 24 15 22 15 22 13 18 15 13 15 13 20 13 24 17 27 15 37 15 40 17 44 13 49 13 49 13 51 20 49 22 49 22 51 24 52 27 52 31 52 42 45 45 38 46 39 47 40 49 40 52 L40 60 C40 61 40 62 42 62 45 62 64 53 64 32 64 14 50 0 32 0 Z" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
                         aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>    
+                    </button>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="collapse navbar-collapse" id="basicExampleNav">  
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item active">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="collapse navbar-collapse" id="basicExampleNav">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
                                 <a class="nav-link" href="#">Home
                                     <span class="sr-only">(current)</span>
                                 </a>
-                                </li>
-                                <li class="nav-item">
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="./info.html">Related Information</a>
-                                </li>
-                                <li class="nav-item">
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="./helplines.html">Helpline</a>
-                                </li>  
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </nav>
-        </div>
-
-        <div id="header">
-            <h2 class="black-text mb-0 text-center font-weight-bold">COVID-19 stats in India</h2>
-        </div>
-        <div id="main">
-            <div class="stats-cards row">
-                <div class="col-md-2">
-                    <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header purple-gradient">
-                        <div class="card-body">
-                            <h4 class="white-text mb-0">Total Cases</h4>
-                            <h2 class="white-text mb-0" id="total_cases"></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header blue-gradient">
-                        <div class="card-body">
-                            <h4 class="white-text mb-0">Indians</h4>
-                            <h2 class="white-text mb-0" id="indians"></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header aqua-gradient">
-                        <div class="card-body">
-                            <h4 class="white-text mb-0">Foreigners</h4>
-                            <h2 class="white-text mb-0" id="foreigners"></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header peach-gradient">
-                        <div class="card-body">
-                            <h4 class="white-text mb-0">Deaths</h4>
-                            <h2 class="white-text mb-0" id="deaths"></h2>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="stats-cards row">
-                    <div class="col-md-2">
-                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header ripe-malinka-gradient">
-                            <div class="card-body">
-                                <h4 class="white-text mb-0">Active Cases</h4>
-                                <h2 class="white-text mb-0" id="active_cases"></h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header sunny-morning-gradient">
-                            <div class="card-body">
-                                <h4 class="white-text mb-0">Today's Cases</h4>
-                                <h2 class="white-text mb-0" id="today_cases"></h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header purple-gradient">
-                            <div class="card-body">
-                                <h4 class="white-text mb-0">Growth Rate</h4>
-                                <h2 class="white-text mb-0" id="growth_rate"></h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header near-moon-gradient">
-                            <div class="card-body">
-                                <h4 class="white-text mb-0">Cured</h4>
-                                <h2 class="white-text mb-0" id="cured"></h2>
-                            </div>
-                        </div>
-                    </div>
-            </div><br/>
+        </nav>
+    </div>
 
-            <div class="charts row">
-                <div class="col-md-10">
-                    <canvas id="canvas"></canvas>
+    <div id="header">
+        <h2 class="black-text mb-0 text-center font-weight-bold">COVID-19 stats in India</h2>
+    </div>
+    <div id="main">
+        <div class="stats-cards row">
+            <div class="col-md-2">
+                <div
+                    class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header purple-gradient">
+                    <div class="card-body">
+                        <h4 class="white-text mb-0">Total Cases</h4>
+                        <h2 class="white-text mb-0" id="total_cases"></h2>
+                    </div>
                 </div>
-            </div><br/>
+            </div>
+            <div class="col-md-2">
+                <div
+                    class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header blue-gradient">
+                    <div class="card-body">
+                        <h4 class="white-text mb-0">Indians</h4>
+                        <h2 class="white-text mb-0" id="indians"></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div
+                    class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header aqua-gradient">
+                    <div class="card-body">
+                        <h4 class="white-text mb-0">Foreigners</h4>
+                        <h2 class="white-text mb-0" id="foreigners"></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div
+                    class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header peach-gradient">
+                    <div class="card-body">
+                        <h4 class="white-text mb-0">Deaths</h4>
+                        <h2 class="white-text mb-0" id="deaths"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <div id="stats-table" class="row">
-                <div class="stats-table-main col-md-12">
-                        <div class="table-responsive">
-                        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-                                <thead
-                                style="
+        <div class="stats-cards row">
+            <div class="col-md-2">
+                <div
+                    class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header ripe-malinka-gradient">
+                    <div class="card-body">
+                        <h4 class="white-text mb-0">Active Cases</h4>
+                        <h2 class="white-text mb-0" id="active_cases"></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div
+                    class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header sunny-morning-gradient">
+                    <div class="card-body">
+                        <h4 class="white-text mb-0">Today's Cases</h4>
+                        <h2 class="white-text mb-0" id="today_cases"></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div
+                    class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header purple-gradient">
+                    <div class="card-body">
+                        <h4 class="white-text mb-0">Growth Rate</h4>
+                        <h2 class="white-text mb-0" id="growth_rate"></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div
+                    class="card mdb-color lighten-2 text-center z-depth-2 view view-cascade gradient-card-header near-moon-gradient">
+                    <div class="card-body">
+                        <h4 class="white-text mb-0">Cured</h4>
+                        <h2 class="white-text mb-0" id="cured"></h2>
+                    </div>
+                </div>
+            </div>
+        </div><br />
+
+        <div class="charts row">
+            <div class="col-md-10">
+                <canvas id="canvas"></canvas>
+            </div>
+        </div><br />
+
+        <div id="stats-table" class="row">
+            <div class="stats-table-main col-md-12">
+                <div class="table-responsive">
+                    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+                        width="100%">
+                        <thead style="
                                 background: white;
                             ">
-                                  <tr>
-                                    <th class="th-sm">State
-                                    </th>
-                                    <th class="th-sm">Total Cases
-                                    </th>
-                                    <th class="th-sm">Indians
-                                    </th>
-                                    <th class="th-sm">Foreigners
-                                    </th>
-                                    <th class="th-sm">Deaths
-                                    </th>
-                                    <th class="th-sm">Cured
-                                    </th>
-                                  </tr>
-                                </thead>
-                                <tbody id="table-body">
-                                    
-                                </tbody>
-                        </table>
-                        </div>
+                            <tr>
+                                <th class="th-sm">State
+                                </th>
+                                <th class="th-sm">Total Cases
+                                </th>
+                                <th class="th-sm">Indians
+                                </th>
+                                <th class="th-sm">Foreigners
+                                </th>
+                                <th class="th-sm">Deaths
+                                </th>
+                                <th class="th-sm">Cured
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
+        </div>
 
-            <div class="switch-choropleth">
-                <ul class="nav nav-tabs" role="tablist" style="max-width: fit-content;">
-                  <li class="nav-item">
+        <div class="switch-choropleth">
+            <ul class="nav nav-tabs" role="tablist" style="max-width: fit-content;">
+                <li class="nav-item">
                     <a class="nav-link active" id="choropleth_switch_1" data-toggle="tab" role="tab"
-                      aria-selected="true">Confirmed</a>
-                  </li>
-                  <li class="nav-item">
+                        aria-selected="true">Confirmed</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" id="choropleth_switch_2" data-toggle="tab" role="tab"
-                      aria-selected="false">Cured</a>
-                  </li>
-                  <li class="nav-item">
+                        aria-selected="false">Cured</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" id="choropleth_switch_3" data-toggle="tab" role="tab"
-                      aria-selected="false">Deaths</a>
-                  </li>
-                </ul>
-            </div>
-            <div id="tooltip"></div>
-            <div class="mapContainer">
-                <svg id="mapsvg" viewbox="0 0 700 650"></svg>
-            </div>
-
+                        aria-selected="false">Deaths</a>
+                </li>
+            </ul>
         </div>
-        <div id="footer" class="blue-gradient">
-            <p class="white-text mb-0 text-center" style="font-size: 1.3rem;">Made with<svg id="i-heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                <path stroke-width="0" fill="#f44336" d="M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z" />
-            </svg> by <a href="https://iamrohitsuthar.github.io" target="_BLANK" style="text-decoration: none;color: white">Rohit Suthar</a></p>
-            <div class="text-center">
-                <a href="https://github.com/iamrohitsuthar/gocoronago" target="_BLANK" style="color:#212529;">
+        <div id="tooltip"></div>
+        <div class="mapContainer">
+            <svg id="mapsvg" viewbox="0 0 700 650"></svg>
+        </div>
+
+    </div>
+    <div id="footer" class="blue-gradient">
+        <p class="white-text mb-0 text-center" style="font-size: 1.3rem;">Made with<svg id="i-heart"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none"
+                stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                <path stroke-width="0" fill="#f44336"
+                    d="M4 16 C1 12 2 6 7 4 12 2 15 6 16 8 17 6 21 2 26 4 31 6 31 12 28 16 25 20 16 28 16 28 16 28 7 20 4 16 Z" />
+            </svg> by <a href="https://iamrohitsuthar.github.io" target="_BLANK"
+                style="text-decoration: none;color: white">Rohit Suthar</a></p>
+        <div class="text-center">
+            <a href="https://github.com/iamrohitsuthar/gocoronago" target="_BLANK" style="color:#212529;">
                 <svg id="i-github" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32" height="32">
-                    <path stroke-width="0" fill="#212529" d="M32 0 C14 0 0 14 0 32 0 53 19 62 22 62 24 62 24 61 24 60 L24 55 C17 57 14 53 13 50 13 50 13 49 11 47 10 46 6 44 10 44 13 44 15 48 15 48 18 52 22 51 24 50 24 48 26 46 26 46 18 45 12 42 12 31 12 27 13 24 15 22 15 22 13 18 15 13 15 13 20 13 24 17 27 15 37 15 40 17 44 13 49 13 49 13 51 20 49 22 49 22 51 24 52 27 52 31 52 42 45 45 38 46 39 47 40 49 40 52 L40 60 C40 61 40 62 42 62 45 62 64 53 64 32 64 14 50 0 32 0 Z" />
+                    <path stroke-width="0" fill="#212529"
+                        d="M32 0 C14 0 0 14 0 32 0 53 19 62 22 62 24 62 24 61 24 60 L24 55 C17 57 14 53 13 50 13 50 13 49 11 47 10 46 6 44 10 44 13 44 15 48 15 48 18 52 22 51 24 50 24 48 26 46 26 46 18 45 12 42 12 31 12 27 13 24 15 22 15 22 13 18 15 13 15 13 20 13 24 17 27 15 37 15 40 17 44 13 49 13 49 13 51 20 49 22 49 22 51 24 52 27 52 31 52 42 45 45 38 46 39 47 40 49 40 52 L40 60 C40 61 40 62 42 62 45 62 64 53 64 32 64 14 50 0 32 0 Z" />
                 </svg>
-                </a>
-                <a href="https://www.instagram.com/iamrohitsuthar/" target="_BLANK" style="color:#212529;">
+            </a>
+            <a href="https://www.instagram.com/iamrohitsuthar/" target="_BLANK" style="color:#212529;">
                 <svg role="i-instagram" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-                    <path fill="#212529" d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                    <path fill="#212529"
+                        d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
                 </svg>
-                </a>
-                <a href="https://twitter.com/iamrohitsuthar" target="_BLANK" style="color:#212529;">
+            </a>
+            <a href="https://twitter.com/iamrohitsuthar" target="_BLANK" style="color:#212529;">
                 <svg id="i-twitter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="36" height="36">
-                    <path stroke-width="0" fill="#212529" d="M60 16 L54 17 L58 12 L51 14 C42 4 28 15 32 24 C16 24 8 12 8 12 C8 12 2 21 12 28 L6 26 C6 32 10 36 17 38 L10 38 C14 46 21 46 21 46 C21 46 15 51 4 51 C37 67 57 37 54 21 Z" />
+                    <path stroke-width="0" fill="#212529"
+                        d="M60 16 L54 17 L58 12 L51 14 C42 4 28 15 32 24 C16 24 8 12 8 12 C8 12 2 21 12 28 L6 26 C6 32 10 36 17 38 L10 38 C14 46 21 46 21 46 C21 46 15 51 4 51 C37 67 57 37 54 21 Z" />
                 </svg>
-                </a>
-            </div>
-            <p class="white-text mb-0 text-center" style="padding-top: 10px !important;">Checkout <a href="https://github.com/amodm/api-covid19-in" target="_BLANK" style="text-decoration: none;color: white">COVID-19 Stats API</a>
-            <span class="pl-3"></span>Contributor : <a href="http://harshsaglani.byethost13.com" target="_BLANK" style="text-decoration: none;color: white"> Harsh Saglani</a></p>
+            </a>
         </div>
-    </body>
+        <p class="white-text mb-0 text-center" style="padding-top: 10px !important;">Checkout <a
+                href="https://github.com/amodm/api-covid19-in" target="_BLANK"
+                style="text-decoration: none;color: white">COVID-19 Stats API</a>
+            <span class="pl-3"></span>Contributor : <a href="http://harshsaglani.byethost13.com" target="_BLANK"
+                style="text-decoration: none;color: white"> Harsh Saglani</a></p>
+    </div>
+</body>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/mdb.js"></script>
-    <script type="text/javascript" src="js/chart.js"></script>
-    <script type="text/javascript" src="js/datatables.min.js"></script>
-    <script type="text/javascript" src="js/d3.v4.js"></script>
-    <script type="text/javascript" src="js/d3-scale-chromatic.v1.min.js"></script>
-    <script type="text/javascript" src="js/d3-legend.min.js"></script>
-    <script type="text/javascript" src="js/IndiaStates.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script>
-        $(document).ready(function () {
-            load();
-            loadChart();
-        });
-    </script>
-
-     <script src="js/jquery.floatThead.min.js"></script>
-     <script>        
-    $(function(){
-        var $table = $('#dtBasicExample');
-        $("#dtBasicExample").floatThead({
-            responsiveContainer: function($table){
-                return $table.closest(".table-responsive");
-            }
-        });        
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/mdb.js"></script>
+<script type="text/javascript" src="js/chart.js"></script>
+<script type="text/javascript" src="js/datatables.min.js"></script>
+<script type="text/javascript" src="js/d3.v4.js"></script>
+<script type="text/javascript" src="js/d3-scale-chromatic.v1.min.js"></script>
+<script type="text/javascript" src="js/d3-legend.min.js"></script>
+<script type="text/javascript" src="js/IndiaStates.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script>
+    $(document).ready(function () {
+        load();
+        loadChart();
     });
-     </script>
+</script>
+
+<script src="js/jquery.floatThead.min.js"></script>
 </html>

@@ -17,11 +17,12 @@ $("#choropleth_switch_3").click(function () {
 
 function load() {
     var table = $('#dtBasicExample').DataTable({
-        paging: false
+        paging: false,
+        fixedHeader: true
     });
     $('.dataTables_length')['addClass']('bs-select');
 
-    $.getJSON('https://api.rootnet.in/covid19-in/stats/latest', function(result) {
+    $.getJSON('https://api.rootnet.in/covid19-in/stats/latest', function (result) {
 
         var totalCases = result['data']['summary']['total'];
         var deaths = result['data']['summary']['deaths'];
@@ -34,7 +35,7 @@ function load() {
         document.getElementById('deaths').innerHTML = deaths;
         document.getElementById('active_cases').innerHTML = totalCases - (deaths + cured);
 
-        $.each(result['data']['regional'], function(key, value) {
+        $.each(result['data']['regional'], function (key, value) {
             var state = value['loc'];
             var index;
             for (index = 0; index < st.length; index++) {
@@ -43,7 +44,7 @@ function load() {
                     break;
                 }
             }
-            
+
             var confirmedCasesIndian = value['confirmedCasesIndian'];
             var confirmedCasesForeign = value['confirmedCasesForeign'];
             var confirmed = confirmedCasesIndian + confirmedCasesForeign;
@@ -63,19 +64,20 @@ function load() {
                 maxDeaths = deaths;
             }
         });
-        
         document.getElementsByClassName('switch-choropleth')[0].style.visibility = 'visible';
         choropleth(0, maxConfirmed);
     });
+
 }
 
+
 function getHelplines() {
-    $.getJSON('https://api.rootnet.in/covid19-in/contacts', function(result) {
-        $.each(result['data']['contacts']['regional'], function(key, value) {
+    $.getJSON('https://api.rootnet.in/covid19-in/contacts', function (result) {
+        $.each(result['data']['contacts']['regional'], function (key, value) {
             var mobile = value['number'];
-            if(mobile.indexOf(',') > 0)
-                mobile = mobile.substring(0,mobile.indexOf(','));
-                var data = "<div class='card'> <div class='header'><h6 class='mb-0 text-center' style='color: #323232'>"+value['loc']+"</h6> </div> <div class='body'><p class='black-text mb-0 text-center'><a href='tel:"+mobile.replace(new RegExp('-', 'g'),"")+"'>"+mobile+"</a></p></div></div>";
+            if (mobile.indexOf(',') > 0)
+                mobile = mobile.substring(0, mobile.indexOf(','));
+            var data = "<div class='card'> <div class='header'><h6 class='mb-0 text-center' style='color: #323232'>" + value['loc'] + "</h6> </div> <div class='body'><p class='black-text mb-0 text-center'><a href='tel:" + mobile.replace(new RegExp('-', 'g'), "") + "'>" + mobile + "</a></p></div></div>";
             $('#help-cards').append(data);
         });
     });
@@ -84,26 +86,26 @@ function getHelplines() {
 const isToday = (someDate) => {
     const today = new Date()
     return someDate.getDate() == today.getDate() &&
-      someDate.getMonth() == today.getMonth() &&
-      someDate.getFullYear() == today.getFullYear()
-}  
+        someDate.getMonth() == today.getMonth() &&
+        someDate.getFullYear() == today.getFullYear()
+}
 
 function getDataForChart(data) {
     var result = JSON.parse('{ "size": ' + data.length + ',"dates": [],"total": [],"indians": [],"foreigners": [],"deaths": [],"cured": []}');
-    
+
     var today_cases = false;
     var prev_cases = 0;
     var isDone = false;
 
-    $.each(data, function(i, item) {
-        if(!today_cases)
+    $.each(data, function (i, item) {
+        if (!today_cases)
             today_cases = isToday(new Date(item.day));
 
-        if(today_cases && !isDone) {
+        if (today_cases && !isDone) {
             document.getElementById('today_cases').innerHTML = item.summary.total - prev_cases;
             isDone = true;
         }
-        if(!today_cases)    
+        if (!today_cases)
             prev_cases = item.summary.total;
 
         result.dates.push(item.day);
@@ -113,30 +115,29 @@ function getDataForChart(data) {
         result.cured.push(item.summary.discharged);
         result.deaths.push(item.summary.deaths);
     });
-    if(!today_cases)
+    if (!today_cases)
         document.getElementById('today_cases').innerHTML = 0;
     return result;
 }
 
-function getGrowthRate(res)
-{   
-        let original = 0;
-        let sum = 0;
-        $.each(res.total, function(i,item){
-            if( i == 0 )
-                original = item;
-            else
-            {
-                var rate = (( item - original ) / original) * 100;
-                sum += rate;
-                original = item;
-            }
-        });
-        return (sum/res.total.length).toFixed(1);
+function getGrowthRate(res) {
+    let original = 0;
+    let sum = 0;
+    $.each(res.total, function (i, item) {
+        if (i == 0)
+            original = item;
+        else {
+            var rate = ((item - original) / original) * 100;
+            sum += rate;
+            original = item;
+        }
+    });
+
+    return (sum / res.total.length).toFixed(1);
 }
 
 function loadChart() {
-    $.getJSON('https://api.rootnet.in/covid19-in/stats/daily', function(data) {
+    $.getJSON('https://api.rootnet.in/covid19-in/stats/daily', function (data) {
         if (data.success) {
             var chartData = getDataForChart(data['data']);
             var avgGrowthRate = getGrowthRate(chartData);
@@ -210,8 +211,8 @@ function chartInit(chartData) {
                         labelString: 'Date'
                     },
                     ticks: {
-                        callback: function(value, index, values) {
-                            if(window.matchMedia("(max-width: 480px)").matches)
+                        callback: function (value, index, values) {
+                            if (window.matchMedia("(max-width: 480px)").matches)
                                 return '';
                             else
                                 return value;
@@ -225,8 +226,8 @@ function chartInit(chartData) {
                         labelString: 'Data'
                     },
                     ticks: {
-                        callback: function(value, index, values) {
-                            if(window.matchMedia("(max-width: 480px)").matches)
+                        callback: function (value, index, values) {
+                            if (window.matchMedia("(max-width: 480px)").matches)
                                 return '';
                             else
                                 return value;
@@ -238,6 +239,17 @@ function chartInit(chartData) {
     };
     var ctx = document.getElementById('canvas').getContext('2d');
     window.myLine = new Chart(ctx, config);
+    
+    // float table head
+    var $table = $('#dtBasicExample');
+    $table.floatThead({
+        responsiveContainer: function ($table) {
+            return $table.closest(".table-responsive");
+        }
+    });
+    $("#dtBasicExample").floatThead({
+        autoReflow: true
+    });
 }
 
 
@@ -265,7 +277,7 @@ function choropleth(choroplethType, maxCount) {
             "<tr><td>Deaths</td><td>" + (data[2]) + "</td></tr>" +
             "</table>";
     }
-    
+
     states.draw("#mapsvg", choroplethType, stateData, maxCount, tooltipHtml);
 
     // Draw scale
