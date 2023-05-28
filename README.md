@@ -1,4 +1,4 @@
-<p align="center"><img src="http://iamrohitsuthar.000webhostapp.com/android/github/gocoronago/GoCoronaGo.png" width="200"/></p>
+<p align="center"><img src="https://github.com/iamrohitsuthar/gocoronago/blob/5d0f5752672bae5d83121ad6459081e6a85f3db9/readme_images/logo.png" width="200"/></p>
 
 <p align="center">
 <a href="https://github.com/iamrohitsuthar/gocoronago/stargazers"><img src="https://img.shields.io/github/stars/iamrohitsuthar/gocoronago"></a>
@@ -7,25 +7,25 @@
 </p>
 
 # gocoronago - COVID-19 Tracker
-GocoronaGo website shows the latest COVID-19 stats in india (<a href="http://gocoronago.ml" target="_BLANK">www.gocoronago.ml</a>)
+GocoronaGo website shows the latest COVID-19 stats in india (<a href="https://iamrohitsuthar.github.io/gocoronago/" target="_BLANK">Check Site</a>)
 
 ## Screenshots
 
 <table>
   <tr>
     <td>
-      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/gocoronago/first.png"/>
+      <img src="https://github.com/iamrohitsuthar/gocoronago/blob/master/readme_images/Screenshot%20from%202023-05-28%2017-11-35.png"/>
     </td>
     <td>
-      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/gocoronago/second.png"/>
+      <img src="https://github.com/iamrohitsuthar/gocoronago/blob/master/readme_images/Screenshot%20from%202023-05-28%2017-12-25.png"/>
     </td>
   </tr>
     <tr>
     <td>
-      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/gocoronago/third.png"/>
+      <img src="https://github.com/iamrohitsuthar/gocoronago/blob/master/readme_images/Screenshot%20from%202023-05-28%2017-12-42.png"/>
     </td>
     <td>
-      <img src="http://iamrohitsuthar.000webhostapp.com/android/github/gocoronago/fourth.png"/>
+      <img src="https://github.com/iamrohitsuthar/gocoronago/blob/master/readme_images/Screenshot%20from%202023-05-28%2017-12-50.png"/>
     </td>
   </tr>
  </table>
